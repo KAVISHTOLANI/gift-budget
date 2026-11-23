@@ -1,0 +1,229 @@
+/* Presently specific styles */
+:root {
+  --st-idea: color-mix(in srgb, var(--text) 30%, var(--surface));
+  --st-planned: #2f6aa3;
+  --st-bought: var(--accent);
+  --st-wrapped: #8a4f9e;
+  --st-given: var(--ok);
+}
+.hero-pr {
+  display: grid;
+  gap: 14px;
+}
+.hero-pr .eyebrow {
+  margin: 0;
+}
+.hero-pr-name {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 1.8rem;
+}
+.tags-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.gift-tag {
+  display: grid;
+  gap: 2px;
+  padding: 8px 12px 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+  animation: tag-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+.gift-tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  border-radius: 0 3px 3px 0;
+  background: var(--c, var(--st-idea));
+}
+.gt-title {
+  font-weight: 600;
+}
+.st-idea { --c: var(--st-idea); }
+.st-planned { --c: var(--st-planned); }
+.st-bought { --c: var(--st-bought); }
+.st-wrapped { --c: var(--st-wrapped); }
+.st-given { --c: var(--st-given); }
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+
+/* Budget meter */
+.meter-wrap {
+  display: grid;
+  gap: 6px;
+}
+.meter {
+  position: relative;
+  height: 14px;
+  border-radius: 99px;
+  background: var(--surface-2);
+  overflow: visible;
+}
+.meter span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 99px;
+  transform-origin: left;
+  animation: grow-x 0.9s var(--ease) both;
+}
+.m-committed {
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+}
+.m-spent {
+  background: var(--accent);
+}
+.meter.is-over .m-committed {
+  background: color-mix(in srgb, var(--err) 35%, var(--surface));
+}
+.m-budget {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--text);
+}
+.legend i.k-spent { background: var(--accent); }
+.legend i.k-committed { background: color-mix(in srgb, var(--accent) 30%, var(--surface)); }
+.legend i.k-budget { background: var(--text); width: 2px; }
+.over {
+  color: var(--err);
+  font-weight: 600;
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Occasions */
+.occ-card {
+  display: grid;
+  gap: 6px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.occ-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.occ-count {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.occ-count b {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.occ-count small {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.66rem;
+  color: var(--muted);
+}
+.occ-name {
+  font-size: 1.1rem;
+}
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+@media (max-width: 1000px) {
+  .board {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  }
+}
+.col {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+  border-top: 3px solid var(--c);
+}
+.col-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.col-empty {
+  margin: 0;
+  text-align: center;
+}
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.gift-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.gift-card strong {
+  overflow-wrap: anywhere;
+}
+.person-card {
+  display: grid;
+  gap: 4px;
+  color: var(--text);
+  text-decoration: none;
+}
+.person-card:hover {
+  border-color: var(--accent);
+}
+.initial {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+.badge.sb-planned { background: color-mix(in srgb, var(--st-planned) 14%, var(--surface)); color: var(--st-planned); }
+.badge.sb-bought { background: var(--accent-soft); color: var(--accent-text); }
+.badge.sb-wrapped { background: color-mix(in srgb, var(--st-wrapped) 14%, var(--surface)); color: var(--st-wrapped); }
+.badge.sb-given { background: var(--ok-soft); color: var(--ok); }
+@media (prefers-reduced-motion: reduce) {
+  .gift-tag,
+  .meter span {
+    animation: none;
+  }
+}
