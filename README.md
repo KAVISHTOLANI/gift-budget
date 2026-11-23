@@ -2,7 +2,7 @@
 
 A gift planner with budgets: people and what they like, occasions with countdowns and shop-by dates, gifts that move from idea to given, and a budget meter that separates what’s committed from what’s spent.
 
-**Live demo:** [https://presently.vercel.app/](https://presently.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
+**Live demo:** [https://presently-budget.vercel.app/](https://presently-budget.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
 
 ![Landing with the next occasion](docs/landing.png)
 
